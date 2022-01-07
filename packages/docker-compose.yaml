@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+    database:
+        build:
+            context: ./
+            dockerfile: arb-node.Dockerfile
+        container_name: "arb-node-container"
+        command: --l1.url http://<server_auth>@munich.hodl.org:81
+        ports:
+            - "8547:8547"
+            - "8548:8548"
+        volumes:
+            - "/root/.arbitrum/mainnet:/home/user/.arbitrum/mainnet"
